@@ -13,7 +13,8 @@ import com.squareup.picasso.Picasso
 
 class ProductItemAdapter(
     private val products: List<Product>,
-    private val context: Context
+    private val context: Context,
+    private val onClick: (Int) -> Unit
 ): RecyclerView.Adapter<ProductItemAdapter.ProductItemViewHolder>() {
 
     inner class ProductItemViewHolder(var binding: RvItemProductBinding): RecyclerView.ViewHolder(binding.root)
@@ -29,11 +30,11 @@ class ProductItemAdapter(
 
     override fun onBindViewHolder(holder: ProductItemViewHolder, position: Int) {
         holder.binding.cardView.setOnClickListener {
-            Toast.makeText(context, "Clicked", Toast.LENGTH_SHORT).show()
+            onClick(products[position].id ?: 1)
         }
         holder.binding.productName.text = products[position].title
         holder.binding.productDescription.text = products[position].description
-        Picasso.get().load(products[position].photoUrl?.get(0)).into(holder.binding.productImage)
+        Picasso.get().load(products[position].thumbnail).into(holder.binding.productImage)
         anim(holder.itemView)
     }
 

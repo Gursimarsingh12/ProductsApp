@@ -23,7 +23,7 @@ class ProductsViewModel @Inject constructor(
         fetchProducts()
     }
 
-    private fun fetchProducts() {
+    fun fetchProducts() {
         viewModelScope.launch {
             productsUseCase.getProducts().collect { state ->
                 _productsState.postValue(state)

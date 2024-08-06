@@ -1,5 +1,6 @@
 package com.chatwise.productsapp.products.presentation.screens
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
@@ -42,7 +43,11 @@ class MainActivity : AppCompatActivity() {
                 }
                 is Resource.Success -> {
                     hideLoading()
-                    val productItemAdapter = state.data?.let { ProductItemAdapter(it, this) }
+                    val productItemAdapter = ProductItemAdapter(state.data ?: emptyList(), this) { productId ->
+                        startActivity(Intent(this, ProductDetailScreenActivity::class.java).apply {
+                            putExtra("productId", productId)
+                        })
+                    }
                     binding.recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
                     binding.recyclerView.adapter = productItemAdapter
                 }

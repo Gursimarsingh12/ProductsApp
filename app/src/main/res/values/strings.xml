@@ -3,4 +3,10 @@
     <string name="view_products">View Products</string>
     <string name="products_list">Products List</string>
     <string name="product_img">product_img</string>
+    <string name="brand">Brand:</string>
+    <string name="category">, Category: </string>
+    <string name="reviews">"Reviews:"</string>
+    <string name="dollar">$</string>
+    <string name="off">% off</string>
+    <string name="product_description">Product Description</string>
 </resources>

@@ -16,10 +16,14 @@
         android:theme="@style/Theme.ProductsApp"
         tools:targetApi="31">
         <activity
+            android:name=".products.presentation.screens.ProductDetailScreenActivity"
+            android:exported="false" />
+        <activity
             android:name=".products.presentation.screens.MainActivity"
             android:exported="false">
         </activity>
-        <activity android:name=".products.presentation.screens.HomeScreenActivity"
+        <activity
+            android:name=".products.presentation.screens.HomeScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
